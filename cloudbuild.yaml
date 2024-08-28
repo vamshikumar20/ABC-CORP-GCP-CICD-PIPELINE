@@ -13,3 +13,5 @@ steps:
         cd ZAP_2.14.0
         ./zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout ../zap_report.html 
     id: DAST Scan using OWASP ZAP
+options:
+  logging: NONE
