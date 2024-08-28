@@ -15,6 +15,6 @@ steps:
     id: DAST Scan using OWASP ZAP
 artifacts:
   objects:
-    location: 'gs://asecurityguru'
+    location: 'gs://abccorp'
     paths:
       - zap_report.html
