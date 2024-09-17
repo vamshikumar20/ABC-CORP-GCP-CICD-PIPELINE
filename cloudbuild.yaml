@@ -14,4 +14,4 @@ steps:
         ./zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout ../zap_report.html 
     id: DAST Scan using OWASP ZAP
 options:
-  logging: NONE
+  logging: CLOUD_LOGGING_ONLY
