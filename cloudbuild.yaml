@@ -11,7 +11,10 @@ steps:
         wget https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2.14.0_Linux.tar.gz
         tar -xvf ZAP_2.14.0_Linux.tar.gz
         cd ZAP_2.14.0
-        ./zap.sh -cmd -quickurl https://www.example.com -quickprogress 
+        ./zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout ../zap_report.html
     id: DAST Scan using OWASP ZAP
-options:
-  logging: CLOUD_LOGGING_ONLY
+artifacts:
+  objects:
+    location: 'gs://asecurityguru'
+    paths:
+      - zap_report.html
