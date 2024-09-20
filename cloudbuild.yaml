@@ -4,7 +4,7 @@ steps:
     entrypoint: mvn
     args: ['verify', 'clean','build']
     id: SAST Scan using SonarCloud in GCP DevSecOps Pipeline
-#Run DAST scan using OWASP ZAP in GCP DevSecOps Pipeline
+#Run scan using OWASP ZAP in GCP DevSecOps Pipeline
   - name: 'ubuntu'
     entrypoint: bash
     args: 
