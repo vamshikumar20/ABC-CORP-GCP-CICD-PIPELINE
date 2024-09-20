@@ -1,4 +1,9 @@
-steps:   
+steps:
+#Execute SAST Scan using SonarCloud in GCP DevSecOps Pipeline
+  - name: maven:3-openjdk-18-slim
+    entrypoint: mvn
+    args: ['verify', 'clean','build']
+    id: SAST Scan using SonarCloud in GCP DevSecOps Pipeline
 #Run DAST scan using OWASP ZAP in GCP DevSecOps Pipeline
   - name: 'ubuntu'
     entrypoint: bash
