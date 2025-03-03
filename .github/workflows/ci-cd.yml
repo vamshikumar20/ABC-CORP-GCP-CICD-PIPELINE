@@ -15,7 +15,7 @@ jobs:
 
       # Upload Maven build output as artifact
       - name: Upload Maven build output
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: maven-build-output
           path: target/
@@ -33,7 +33,7 @@ jobs:
 
       # Upload OWASP ZAP scan output as artifact
       - name: Upload OWASP ZAP scan output
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: owasp-zap-output
           path: ZAP_2.14.0/
