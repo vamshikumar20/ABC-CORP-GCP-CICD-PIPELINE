@@ -20,6 +20,24 @@ jobs:
           name: maven-build-output
           path: target/
 
+       # Build Docker image
+      - name: Build Docker image
+        run: |
+            docker build -t user/repository:${{ github.sha }} -f ./Dockerfile .
+
+       # Upload Docker build output as artifact
+      - name: Upload Docker build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-build-output
+          path: docker_image_${{ github.sha }}.tar
+
+      # Push Docker image to Docker Hub
+      - name: Push Docker image to Docker Hub
+        run: |
+            echo "${{ secrets.DOCKER_PAT }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+            docker push user/repository:${{ github.sha }}
+
       # Run DAST scan using OWASP ZAP in CICD Pipeline
       - name: DAST Scan using OWASP ZAP
         run: |
