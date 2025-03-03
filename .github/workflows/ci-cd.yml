@@ -36,7 +36,7 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: |
             echo "${{ secrets.DOCKER_PAT }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-            docker push user/repository:${{ github.sha }}
+            docker push ${{secrets.DOCKER_USERNAME}}/abc-corp-docker-img:${{ github.sha }}
 
       # Run DAST scan using OWASP ZAP in CICD Pipeline
       - name: DAST Scan using OWASP ZAP
