@@ -6,23 +6,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Clean, Test and Build ABC Web App in CICD Pipeline
-      - name: maven:3-openjdk-18-slim
-        entrypoint: mvn
-        args: ['clean', 'test', 'install']
-        id: Clean, Test & Build ABC Web App in CICD Pipeline
+      - name: Clean, Test & Build ABC Web App in CICD Pipeline
+        run: mvn clean test install
+
       # Run DAST scan using OWASP ZAP in CICD Pipeline
-      - name: 'ubuntu'
-        entrypoint: bash
-        args: 
-          - '-c'
-          - |-
-            apt-get update
-            apt-get -y install wget
-            apt-get -y install default-jdk
-            wget https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2.14.0_Linux.tar.gz
-            tar -xvf ZAP_2.14.0_Linux.tar.gz
-            cd ZAP_2.14.0
-            ./zap.sh -cmd -quickurl https://www.example.com -quickprogress
-        id: DAST Scan using OWASP ZAP
-    options:
-      logging: CLOUD_LOGGING_ONLY
+      - name: DAST Scan using OWASP ZAP
+        run: |
+          apt-get update
+          apt-get -y install wget
+          apt-get -y install default-jdk
+          wget https://github.com/zaproxy/zaproxy/releases/download/v2.14.0/ZAP_2.14.0_Linux.tar.gz
+          tar -xvf ZAP_2.14.0_Linux.tar.gz
+          cd ZAP_2.14.0
+          ./zap.sh -cmd -quickurl https://www.example.com -quickprogress
+    
