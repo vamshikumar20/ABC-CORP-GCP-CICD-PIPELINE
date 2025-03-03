@@ -36,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: owasp-zap-output
-          path: ZAP_2.16.0/zap_report.html
+          path: ZAP_2.16.0/
