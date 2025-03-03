@@ -37,6 +37,6 @@ Before you begin, ensure you have the following installed on your system:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/abc-corp/abc-web-app.git
-   cd abc-web-app
+   git clone https://github.com/vamshikumar20/ABC-CORP-GCP-CICD-PIPELINE.git
+   cd ABC-CORP-GCP-CICD-PIPELINE
 
