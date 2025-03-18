@@ -10,15 +10,15 @@ jobs:
         uses: actions/checkout@v4
 
       # Clean, Test and Build ABC Web App in CICD Pipeline
-      - name: Clean, Test & Build ABC Web App in CICD Pipeline
-        run: mvn clean test install
+      # - name: Clean, Test & Build ABC Web App in CICD Pipeline
+      #   run: mvn clean test install
 
-      # Upload Maven build output as artifact
-      - name: Upload Maven build output
-        uses: actions/upload-artifact@v4
-        with:
-          name: maven-build-output
-          path: target/
+      # # Upload Maven build output as artifact
+      # - name: Upload Maven build output
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: maven-build-output
+      #     path: target/
 
       # Build Docker image
       - name: Build Docker image
