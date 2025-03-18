@@ -9,7 +9,7 @@ RUN apt-get update && \
     rm ZAP_2.16.0_Linux.tar.gz && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN ./mvn clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 # Stage 2: Final stage
 FROM openjdk:11-jre-slim
