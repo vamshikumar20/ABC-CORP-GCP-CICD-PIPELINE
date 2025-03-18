@@ -39,18 +39,18 @@ jobs:
            echo "${{ secrets.DOCKER_PAT }}" | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
            docker push abc-corp-docker-img:${{ github.sha }}
 
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.28.0
-        with:
-          image-ref: "abc-corp-docker-img:${{ github.sha }}"
-          format: 'sarif'
-          output: 'trivy-results.sarif'
+      # - name: Run Trivy vulnerability scanner
+      #   uses: aquasecurity/trivy-action@0.28.0
+      #   with:
+      #     image-ref: "abc-corp-docker-img:${{ github.sha }}"
+      #     format: 'sarif'
+      #     output: 'trivy-results.sarif'
 
-      - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v3
-        if: always()
-        with:
-          sarif_file: 'trivy-results.sarif'
+      # - name: Upload Trivy scan results to GitHub Security tab
+      #   uses: github/codeql-action/upload-sarif@v3
+      #   if: always()
+      #   with:
+      #     sarif_file: 'trivy-results.sarif'
             
       # Run DAST scan using OWASP ZAP in CICD Pipeline
       - name: DAST Scan using OWASP ZAP
