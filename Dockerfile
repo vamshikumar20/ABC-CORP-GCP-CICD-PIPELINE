@@ -18,7 +18,7 @@ FROM openjdk:11-jre-slim
 COPY --from=builder /zap /zap
 
 # Copy your specific Java application JAR file from the Maven target directory
-COPY target/java-vulnerable-code-asecurityguru-1.0-SNAPSHOT.jar /app/app.jar
+COPY target/*.jar /app/app.jar
 
 # Set the working directory
 WORKDIR /app
