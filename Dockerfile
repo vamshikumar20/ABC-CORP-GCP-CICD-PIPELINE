@@ -7,6 +7,7 @@ RUN apt-get update && \
     mkdir /zap && \
     tar -xvf ZAP_2.16.0_Linux.tar.gz -C /zap && \
     rm ZAP_2.16.0_Linux.tar.gz && \
+    apt-get install -y maven && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 RUN mvn clean package -DskipTests
