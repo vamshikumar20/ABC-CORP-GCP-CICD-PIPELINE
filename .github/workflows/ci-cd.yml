@@ -50,7 +50,7 @@ jobs:
       # Push Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
         run: |
-           echo "${{ secrets.DOCKER_PAT }}" | docker login -u "" --password-stdin
+           echo "${{ secrets.DOCKER_PAT }}" | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
            docker push abc-corp-docker-img:${{ github.sha }}
 
 
